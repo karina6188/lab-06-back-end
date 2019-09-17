@@ -24,12 +24,24 @@ In this app, we used JavaScript, Express, cors, and dotenv. Express is the libra
 -->
 
 
-Number and name of feature: ________________________________
+Number and name of feature: #1 Repository Set Up
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hour
 
-Start time: _____
+Start time: 9:40 AM
 
-Finish time: _____
+Finish time: 11:00 AM
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hour 20 minutes
+
+
+
+Number and name of feature: #2 Locations
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 11:00 AM
+
+Finish time: 11:25 AM
+
+Actual time needed to complete: 25 minutes
