@@ -15,9 +15,11 @@ When users want to build this app on their own machine, they first go to our Git
 In this app, we used JavaScript, Express, cors, and dotenv. Express is the library that lets us set up a server. Cors initializes our express server. It tells the browser it is ok to communicate with the domain that the js isn't running on and tells the browser that you want the client domain to be able to make server requests. Dotenv is the library that lets us talk to our .env file. 
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+09-17-2019 11:00am - Repository of app is set up with all the folder structure and files required. A GitHub repo is created and a collaborator is added to the repo. 
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource.
+09-17-2019 11:25am - App is now successfully running on the express server and is deployed through Heroku. The app has the first feature 'Location', which has a route of /location and shows the location's search query, formatted address, latitude, and longitude.
+
+09-17-2019 12:40am - The second feature 'Weather' of the app is now available and is deployed on Heroku. This feature allows the users to know the upcoming 8 days of weather conditions of the location they input.
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -45,3 +47,27 @@ Start time: 11:00 AM
 Finish time: 11:25 AM
 
 Actual time needed to complete: 25 minutes
+
+
+
+Number and name of feature: #3 Weather
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 11:30 AM
+
+Finish time: 12:40 PM
+
+Actual time needed to complete: 1 hour 10 minutes
+
+
+
+Number and name of feature: #4 Errors
+
+Estimate of time needed to complete: 15 minutes
+
+Start time: 1:25 PM
+
+Finish time: 
+
+Actual time needed to complete: 
