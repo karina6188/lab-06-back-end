@@ -6,6 +6,12 @@ const app = express();
 app.use(cors());
 require('dotenv').config();
 
+function Error(err) {
+  this.status = 500;
+  this.responseText = 'Sorry, something went wrong.';
+  this.error = err;
+}
+
 // Location
 
 app.get('/location', (request, response) => {
@@ -19,6 +25,8 @@ app.get('/location', (request, response) => {
   }
   catch (err) {
     console.error(err);
+    const error = new Error(err);
+    response.status(500).send(error);
   }
 });
 
@@ -28,6 +36,7 @@ function Location(searchQuery, geoDataResults) {
   this.latitude = geoDataResults.results[0].geometry.location.lat;
   this.longitude = geoDataResults.results[0].geometry.location.lng;
 }
+
 
 // Weather
 
@@ -61,7 +70,7 @@ function Forecast(searchQuery, weatherDataResults) {
 }
 
 app.use('*', (request, response) => {
-  response.status(404).send('Error 404 Page Not Found');
+  response.status(500).send('Sorry, something went wrong');
 });
 
 const PORT = process.env.PORT || 3000;
