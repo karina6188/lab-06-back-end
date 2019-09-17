@@ -6,6 +6,8 @@ const app = express();
 app.use(cors());
 require('dotenv').config();
 
+// Location
+
 app.get('/location', (request, response) => {
   try {
     let searchQuery = request.query.data;
@@ -15,10 +17,10 @@ app.get('/location', (request, response) => {
 
     response.status(200).send(locations);
   }
-  catch(err) {
+  catch (err) {
     console.error(err);
   }
-})
+});
 
 function Location(searchQuery, geoDataResults) {
   this.search_query = searchQuery;
@@ -27,9 +29,40 @@ function Location(searchQuery, geoDataResults) {
   this.longitude = geoDataResults.results[0].geometry.location.lng;
 }
 
+// Weather
+
+app.get('/weather', (request, response) => {
+  try {
+    let searchQuery = request.query.data;
+    const weatherDataResults = require('./data/darksky.json');
+
+    const forecast = new Forecast(searchQuery, weatherDataResults);
+
+    response.status(200).send(forecast);
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+function Forecast(searchQuery, weatherDataResults) {
+  console.log(weatherDataResults);
+  const result = [];
+  weatherDataResults.daily.data.forEach(day => {
+    const obj = {};
+    obj.forecast = day.summary;
+
+    const date = new Date(0);
+    date.setUTCSeconds(day.time);
+    obj.time = date.toDateString();
+
+    result.push(obj);
+  });
+  return result;
+}
+
 app.use('*', (request, response) => {
   response.status(404).send('Error 404 Page Not Found');
-})
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
